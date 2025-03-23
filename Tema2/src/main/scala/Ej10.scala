@@ -1,7 +1,7 @@
 object Ej10 {
   @main
   def main10(): Unit = {
-    val source = io.Source.fromFile("test.txt")
+    val source = io.Source.fromFile("testFiles/test.txt")
 
     val lines= source.getLines.mkString("\n")
     val line = source.mkString
