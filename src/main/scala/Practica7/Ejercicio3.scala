@@ -1,14 +1,13 @@
 package Practica7
 
 import concurrencia.*
-import scala.util.Random
 
 object Parejas{
   private var hayHombre = false
   private var hayMujer = false
   private var num = 0
 
-  def llegaHombre(id:Int) = synchronized {
+  def llegaHombre(id:Int): Unit = synchronized {
     while (hayHombre) wait()
     hayHombre = true
     log(s"Hombre $id quiere formar pareja")
@@ -21,7 +20,7 @@ object Parejas{
     }
   }
 
-  def llegaMujer(id: Int) =  synchronized {
+  def llegaMujer(id: Int): Unit =  synchronized {
     while (hayMujer) wait()
     hayMujer = true
     log(s"Mujer $id quiere formar pareja")
@@ -34,16 +33,6 @@ object Parejas{
     } else {
 
     }
-  }
-
-  def llegaHombreProf(id: Int) = synchronized {
-
-    log(s"Hombre $id quiere formar pareja")
-  }
-
-  def llegaMujerProf(id: Int) = synchronized {
-    while (hayMujer)
-    log(s"Mujer $id quiere formar pareja")
   }
 }
 object Ejercicio3 {
